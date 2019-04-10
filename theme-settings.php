@@ -27,8 +27,8 @@ function kalatheme_form_system_theme_settings_alter(&$form, &$form_state) {
   // Make default options collapsible
   $fieldsets = array('theme_settings', 'logo', 'favicon');
   foreach ($fieldsets as $fieldset) {
-    $form[$fieldset]['#collapsible'] = TRUE;
-    $form[$fieldset]['#collapsed'] = TRUE;
+    $form[$fieldset]['#collapsible'] = true;
+    $form[$fieldset]['#collapsed'] = true;
   }
 
   // Subtheme backend checks
@@ -49,8 +49,8 @@ function kalatheme_form_system_theme_settings_alter(&$form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Page Title'),
     '#weight' => 41,
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
+    '#collapsible' => true,
+    '#collapsed' => true,
     '#description' => t('By default, Kalatheme only displays page titles on pages that aren\'t rendered through Panels or Panelizer.
       If toggled on, this setting will cause Kalatheme to always print the page title, regardless of how the page is rendered.'),
   );
@@ -66,8 +66,8 @@ function kalatheme_form_system_theme_settings_alter(&$form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Responsive'),
     '#weight' => 42,
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
+    '#collapsible' => true,
+    '#collapsed' => true,
   );
   $form['responsive']['grid_size'] = array(
     '#type' => 'markup',
@@ -90,8 +90,8 @@ function kalatheme_form_system_theme_settings_alter(&$form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Pane and Region Styles'),
     '#weight' => 43,
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
+    '#collapsible' => true,
+    '#collapsed' => true,
     '#description' => t('If toggled on, the kalacustomize style plugin will allow the user to set a class for panels panes and regions.'),
   );
   $form['pane_styles']['pane_styles_toggle'] = array(
@@ -104,7 +104,7 @@ function kalatheme_form_system_theme_settings_alter(&$form, &$form_state) {
     '#type' => 'container',
     '#states' => array(
       'invisible' => array(
-        ':input[name="pane_styles_toggle"]' => array('checked' => FALSE),
+        ':input[name="pane_styles_toggle"]' => array('checked' => false),
       ),
     ),
   );
@@ -117,7 +117,7 @@ function kalatheme_form_system_theme_settings_alter(&$form, &$form_state) {
     '#default_value' => $pane_classes,
     '#rows' => 10,
     '#element_validate' => array('list_allowed_values_setting_validate'),
-    '#field_has_data' => FALSE,
+    '#field_has_data' => false,
     '#field' => $field,
     '#field_type' => $field['type'],
     '#description' => '<p>' . t('The possible values this field can contain. Enter one value per line, in the format key|label.') . '</p>',

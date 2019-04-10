@@ -39,7 +39,7 @@ require_once dirname(__FILE__) . '/includes/views.inc';
 function kalatheme_theme($existing, $type, $theme, $path) {
   return array(
     'menu_local_actions' => array(
-      'variables' => array('menu_actions' => NULL, 'attributes' => NULL),
+      'variables' => array('menu_actions' => null, 'attributes' => null),
       'file' => 'includes/menu.inc',
     ),
   );
@@ -170,13 +170,13 @@ function kalatheme_process_page(&$variables) {
       '#menu_actions' => $variables['action_links'],
       '#attributes' => $dropdown_attributes,
     );
-    $variables['action_links'] = FALSE;
+    $variables['action_links'] = false;
   }
 
   // Always print the site name and slogan, but if they are toggled off, we'll
   // just hide them visually.
-  $variables['hide_site_name']   = theme_get_setting('toggle_name') ? FALSE : TRUE;
-  $variables['hide_site_slogan'] = theme_get_setting('toggle_slogan') ? FALSE : TRUE;
+  $variables['hide_site_name']   = theme_get_setting('toggle_name') ? false : true;
+  $variables['hide_site_slogan'] = theme_get_setting('toggle_slogan') ? false : true;
   if ($variables['hide_site_name']) {
     // If toggle_name is FALSE, the site_name will be empty, so we rebuild it.
     $variables['site_name'] = filter_xss_admin(variable_get('site_name', 'Drupal'));
@@ -206,7 +206,7 @@ function kalatheme_process_page(&$variables) {
   $variables['no_panels'] = !(module_exists('page_manager') && page_manager_get_current_page());
 
   // Check if we're to always print the page title, even on panelized pages.
-  $variables['always_show_page_title'] = theme_get_setting('always_show_page_title') ? TRUE : FALSE;
+  $variables['always_show_page_title'] = theme_get_setting('always_show_page_title') ? true : false;
 }
 
 /**
@@ -218,7 +218,7 @@ function kalatheme_process_page(&$variables) {
 function kalatheme_preprocess_page(&$variables) {
   // Get the menu tree for the menu that is set as 'Source for the Main links'.
   $main_links_menu = variable_get('menu_main_links_source', 'main-menu');
-  $main_menu_tree = menu_tree_all_data($main_links_menu, NULL, 2);
+  $main_menu_tree = menu_tree_all_data($main_links_menu, null, 2);
 
   // Add the rendered output to the $main_menu_expanded variable.
   $main_menu_expanded = menu_tree_output($main_menu_tree);
@@ -272,8 +272,8 @@ function kalatheme_preprocess_page(&$variables) {
 function kalatheme_process_maintenance_page(&$variables) {
   // Always print the site name and slogan, but if they are toggled off, we'll
   // just hide them visually.
-  $variables['hide_site_name']   = theme_get_setting('toggle_name') ? FALSE : TRUE;
-  $variables['hide_site_slogan'] = theme_get_setting('toggle_slogan') ? FALSE : TRUE;
+  $variables['hide_site_name']   = theme_get_setting('toggle_name') ? false : true;
+  $variables['hide_site_slogan'] = theme_get_setting('toggle_slogan') ? false : true;
   if ($variables['hide_site_name']) {
     // If toggle_name is FALSE, the site_name will be empty, so we rebuild it.
     $variables['site_name'] = filter_xss_admin(variable_get('site_name', 'Drupal'));
